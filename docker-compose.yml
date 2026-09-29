@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: job-portal-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: job_portal
+      MYSQL_USER: jobuser
+      MYSQL_PASSWORD: jobpass
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports: ["3306:3306"]
+    volumes: [job_portal_data:/var/lib/mysql]
+volumes:
+  job_portal_data:
